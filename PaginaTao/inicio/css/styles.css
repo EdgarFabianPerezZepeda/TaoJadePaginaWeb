@@ -1,0 +1,455 @@
+/* ===== VARIABLES GLOBALES =====
+   Aquí se definen colores, fuentes y medidas reutilizables en todo el sitio */
+:root{
+    --color-header-bg:#B7D9A4;        /* Fondo verde pastel del encabezado */
+    --color-header-text:#1A3018;      /* Verde oscuro para textos principales */
+    --color-spiral-green:#B3C999;     /* Verde medio decorativo */
+    --color-spiral-mustard:#F5C75A;   /* Color mostaza para acentos */
+    --color-spiral-rust:#A83C2A;      /* Rojo óxido para botones y efectos */
+    --color-logo-brown:#705B48;       /* Café del logotipo */
+    --color-fondo:#FFFFFF;            /* Blanco base del sitio */
+    --color-texto-hero:#FFFFFF;       /* Blanco para textos sobre fondos oscuros */
+    --fuente-principal:'Arial',sans-serif; /* Fuente general */
+    --ancho-maximo:1200px;            /* Ancho máximo del contenido */
+}
+
+/* ===== RESETEO GLOBAL =====
+   Elimina márgenes y paddings por defecto del navegador */
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; /* Evita que padding afecte el tamaño total */
+}
+
+/* ===== CONFIGURACIÓN BASE DEL BODY ===== */
+body{
+    font-family:var(--fuente-principal); /* Aplica fuente global */
+    background:var(--color-fondo);       /* Fondo general */
+    color:var(--color-header-text);      /* Color de texto base */
+    line-height:1.6;                     /* Espaciado entre líneas */
+}
+
+/* ===== CONTENEDOR CENTRAL =====
+   Centra el contenido y limita su ancho */
+.contenedor{
+    max-width:var(--ancho-maximo);
+    margin:auto;
+    padding:0 20px;
+}
+
+/* ===== ESTILO GENERAL DE ENLACES ===== */
+a{
+    text-decoration:none; /* Quita subrayado */
+    color:inherit;        /* Hereda color del elemento padre */
+}
+
+/* ===== LISTAS SIN VIÑETAS ===== */
+ul{list-style:none}
+
+/* ===== ENCABEZADO ===== */
+.header{
+    background:var(--color-header-bg); /* Fondo verde */
+    box-shadow:0 1px 3px rgba(0,0,0,.05); /* Sombra suave inferior */
+    position:relative;
+    z-index:1000; /* Evita que otros elementos lo tapen */
+}
+
+/* ===== DISTRIBUCIÓN INTERNA DEL HEADER ===== */
+.header-contenido{
+    display:flex; /* Activa Flexbox */
+    justify-content:space-between; /* Separa logo y menú */
+    align-items:center; /* Centra verticalmente */
+    min-height:150px; /* Altura mínima del header */
+    padding:15px 20px;
+    gap:40px; /* Espacio entre bloques */
+}
+
+/* ===== LOGO GRANDE ===== */
+.logo-img-grande{
+    height:120px;
+    transition:transform .3s ease; /* Animación suave */
+}
+
+/* Efecto al pasar el cursor por el logo */
+.logo-img-grande:hover{transform:scale(1.05)}
+
+/* ===== BLOQUE DERECHO DEL HEADER ===== */
+.menu-seccion{
+    display:flex;
+    flex-direction:column; /* Elementos uno debajo de otro */
+    align-items:center;
+    flex:1; /* Ocupa espacio disponible */
+}
+
+/* ===== ENLACE DEL TÍTULO ===== */
+.titulo-link{margin-bottom:15px}
+
+/* ===== TÍTULO PRINCIPAL ===== */
+.titulo-header{
+    font-size:2.8rem;
+    color:var(--color-logo-brown);
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+.menu{
+    display:flex;
+    gap:30px;
+    align-items:center;
+    justify-content:center;
+}
+
+/* ===== ENLACES DEL MENÚ ===== */
+.menu li a{
+    color:var(--color-header-text);
+    font-size:.9rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    padding:5px 0;
+    transition:color .3s ease;
+}
+
+/* Cambio de color al pasar el mouse */
+.menu li a:hover{color:var(--color-spiral-rust)}
+
+/* ===== ESPACIADO DE SECCIONES ===== */
+.seccion{padding:80px 0}
+
+/* ===== TÍTULOS DE SECCIÓN ===== */
+.titulo-seccion{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:40px;
+}
+
+/* ===== BOTÓN PRINCIPAL ===== */
+.btn-principal{
+    display:inline-block;
+    background:var(--color-spiral-rust);
+    color:#fff;
+    padding:12px 24px;
+    border-radius:5px;
+    font-weight:600;
+    margin-top:20px;
+    transition:background-color .3s;
+}
+
+/* Botón más oscuro al pasar el cursor */
+.btn-principal:hover{background:#8a3020}
+
+/* ===== CARRUSEL ===== */
+.carrusel{
+    position:relative;
+    padding:60px 0;
+    overflow:hidden; /* Oculta contenido que sobresalga */
+}
+
+/* Contenedor de diapositivas */
+.carrusel-inner{
+    position:relative;
+    min-height:500px;
+}
+
+/* Cada diapositiva */
+.carrusel-item{
+    position:absolute;
+    inset:0; /* Equivale a top,left,width,height */
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .8s ease-in-out,visibility .8s;
+}
+
+/* Diapositiva visible */
+.carrusel-item.activa{
+    opacity:1;
+    visibility:visible;
+    position:relative;
+    z-index:10;
+}
+
+/* Distribución interna del carrusel */
+.carrusel-layout{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+}
+
+/* Bloque de texto */
+.carrusel-texto{
+    flex:1;
+    max-width:550px;
+}
+
+/* Título del carrusel */
+.carrusel-texto h2{
+    font-size:2.8rem;
+    line-height:1.2;
+    margin-bottom:20px;
+    color:var(--color-logo-brown);
+}
+
+/* Párrafos */
+.carrusel-texto p{
+    font-size:1.1rem;
+    margin-bottom:15px;
+}
+
+/* ===== ÁREA DE IMÁGENES DEL CARRUSEL ===== */
+.carrusel-graficos{
+    flex:1;
+    position:relative;
+    height:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Configuración base para fotos flotantes */
+.forma-foto{
+    position:absolute;
+    background-size:cover;
+    background-position:center;
+}
+
+/* Posiciones individuales */
+.foto-1{width:250px;height:280px;top:50%;left:50%;z-index:2}
+.foto-2{width:285px;height:260px;top:5%;left:80%;z-index:3}
+.foto-3{width:280px;height:300px;top:5%;right:50%;z-index:1}
+.foto-4{width:280px;height:300px;top:50%;left:40%;z-index:2}
+.foto-5{width:235px;height:260px;top:5%;left:80%;z-index:3}
+.foto-6{width:280px;height:270px;top:5%;right:50%;z-index:1}
+
+/* ===== BOTONES DEL CARRUSEL ===== */
+.carrusel-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:transparent;
+    border:none;
+    font-size:40px;
+    cursor:pointer;
+    z-index:20;
+    opacity:.3;
+    transition:opacity .3s,transform .3s;
+}
+
+.carrusel-btn:hover{
+    opacity:1;
+    transform:translateY(-50%) scale(1.1);
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+/* ===== SECCIÓN TALLERES ===== */
+.talleres-identicos{
+    background:var(--color-header-bg);
+    padding:80px 0;
+}
+
+.grid-talleres-identico{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+/* Cada tarjeta de taller */
+.taller-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    flex:1;
+    min-width:200px;
+}
+
+/* Forma decorativa orgánica */
+.forma-organica{
+    width:210px;
+    height:195px;
+    border-radius:50%/60% 60% 40% 40%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.blob-mostaza{background:#F8D675}
+.blob-salmon{background:#F29E74}
+
+.icono-taller-img{
+    width:110px;
+    object-fit:contain;
+}
+
+/* Título de taller */
+.taller-item h3{
+    color:#0B240B;
+    font-size:1.15rem;
+    font-weight:700;
+}
+
+/* ===== SECCIÓN INFORMACIÓN ===== */
+.informacion-proyecto{
+    position:relative;
+    padding:320px 0 180px;
+    text-align:center;
+}
+
+/* Bandas decorativas */
+.patron-decorativo{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:130px;
+    background-repeat:repeat-x;
+    background-size:contain;
+    z-index:1;
+}
+
+.top{top:0;background-image:url('../img/fondosuperior.png')}
+.bottom{bottom:0;background-image:url('../img/fondoinferior.png')}
+
+/* Cuadrícula adaptable */
+.grid-info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+    position:relative;
+    z-index:2;
+}
+
+.icono-info{
+    height:70px;
+    margin-bottom:20px;
+}
+
+/* Textos informativos */
+.info-item h3{color:#5A7E47;font-size:1.4rem;margin-bottom:15px}
+.info-item p{color:#444;line-height:1.7;font-size:.95rem}
+
+/* ===== FOOTER ===== */
+.footer{
+    background:var(--color-header-text);
+    color:#fff;
+    padding:60px 0 0;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+    padding-bottom:40px;
+}
+
+.footer h4{
+    color:var(--color-spiral-mustard);
+    margin-bottom:20px;
+    font-size:1.2rem;
+}
+
+.footer p,.footer a{
+    margin-bottom:10px;
+    font-size:.95rem;
+}
+
+.redes-enlaces{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.redes-enlaces a:hover{color:var(--color-spiral-mustard)}
+
+.footer-bottom{
+    background:rgba(0,0,0,.15);
+    text-align:center;
+    padding:20px 0;
+    font-size:.85rem;
+    opacity:.9;
+}
+
+/* ===== LOGO ===== */
+.logo-contenedor{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-img{
+    height:60px;
+    border-radius:8px;
+    transition:transform .3s ease;
+}
+
+.logo-contenedor:hover .logo-img{transform:scale(1.05)}
+
+.logo h1{
+    font-size:1.8rem;
+    color:var(--color-logo-brown);
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.logo-footer{
+    height:90px;
+    margin-bottom:15px;
+}
+/* ================= SUBMENÚ DESPLEGABLE ================= */
+
+/* Preparamos al elemento "padre" para contener al submenú flotante */
+.menu-desplegable {
+    position: relative; 
+}
+
+/* Diseño de la cajita flotante del submenú */
+.submenu {
+    display: none; /* Se mantiene oculta por defecto */
+    position: absolute;
+    top: 100%; /* Se coloca justo debajo de la palabra "Talleres" */
+    left: 0;
+    background-color: var(--color-header-bg); /* Mismo fondo verde pastel del header */
+    min-width: 230px; /* Ancho suficiente para que los nombres no se aprieten */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombrita elegante para darle profundidad */
+    border-radius: 5px;
+    padding: 10px 0;
+    z-index: 2000;
+    flex-direction: column; /* Apila los enlaces hacia abajo */
+    gap: 0;
+}
+
+/* La magia: Mostrar el submenú cuando pasas el ratón sobre el botón principal */
+.menu-desplegable:hover .submenu {
+    display: flex;
+}
+
+/* Estilos de los enlaces de los talleres dentro de la cajita */
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--color-header-text);
+    text-transform: capitalize; /* Convierte solo la primera letra en mayúscula (no todo gritando) */
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Una línea divisoria súper sutil */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submenu li:last-child a {
+    border-bottom: none; /* Quitamos la línea del último enlace para que se vea limpio */
+}
+
+/* Efecto al pasar el ratón por las opciones del submenú */
+.submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Un brillito blanco transparente de fondo */
+    color: var(--color-spiral-rust); /* El texto cambia al color óxido/terracota */
+}
