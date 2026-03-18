@@ -1,4 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
+// ==========================================
+    // 3. LÓGICA DE LA VENTANA FLOTANTE (Modal de Tienda)
+    // ==========================================
+    const modal = document.getElementById('modalCotizacion');
+    const botonesCotizar = document.querySelectorAll('.btn-cotizar');
+    const btnCerrarModal = document.getElementById('btnCerrarModal');
+
+    // Solo ejecuta si estamos en la página del catálogo
+    if (modal) {
+        // Al hacer clic en CUALQUIER botón de producto, abrimos el modal
+        botonesCotizar.forEach(boton => {
+            boton.addEventListener('click', () => {
+                modal.classList.add('mostrar');
+            });
+        });
+
+        // Al hacer clic en la X, cerramos el modal
+        btnCerrarModal.addEventListener('click', () => {
+            modal.classList.remove('mostrar');
+        });
+
+        // Al hacer clic afuera de la cajita blanca, también lo cerramos
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('mostrar');
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================
     // 1. LÓGICA DEL MENÚ DE HAMBURGUESA (Móvil)
@@ -7,15 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const navPrincipal = document.getElementById('nav-principal');
 
     if (menuToggle && navPrincipal) {
-        // Abrir/cerrar menú al hacer clic en la hamburguesa
+        
+        // Al hacer clic en el botón de las 3 líneas
         menuToggle.addEventListener('click', (event) => {
-            event.stopPropagation(); // Evita que el clic se propague y cierre el menú inmediatamente
+            event.stopPropagation(); // <--- ¡ESTA ES LA LÍNEA MÁGICA QUE FALTABA!
             navPrincipal.classList.toggle('menu-open');
             menuToggle.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic fuera
+        // Si el usuario hace clic fuera del menú, lo cerramos
         document.addEventListener('click', (event) => {
+            // Solo si el menú está abierto intentamos cerrarlo
             if (navPrincipal.classList.contains('menu-open')) {
                 if (!navPrincipal.contains(event.target) && !menuToggle.contains(event.target)) {
                     navPrincipal.classList.remove('menu-open');
@@ -24,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Resetear al pasar a escritorio
+        // Si el usuario agranda la pantalla (pasa a computadora), reseteamos
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 navPrincipal.classList.remove('menu-open');
@@ -34,11 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 2. LÓGICA DEL CARRUSEL (Solo si existe)
+    // 2. LÓGICA DEL CARRUSEL (Para la página de inicio)
     // ==========================================
     const slides = document.querySelectorAll('.carrusel-item');
     
-    // Solo iniciamos el carrusel si encontramos diapositivas en esta página
     if (slides.length > 0) {
         let slideActual = 0;
 
@@ -51,17 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[slideActual].classList.add('activa');
         }
 
-        // Exponemos la función globalmente para que funcionen los botones en HTML
         window.moverCarrusel = function(direccion) {
             slideActual += direccion;
             mostrarSlide(slideActual);
         };
 
-        // Autoplay
         setInterval(() => {
             slideActual++;
             mostrarSlide(slideActual);
         }, 6000);
     }
 
-}); 
+});
+    }
