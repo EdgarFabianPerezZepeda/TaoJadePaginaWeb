@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAO de Jade | Talleres para Jóvenes en Nayarit</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="contenedor header-contenido">
+            
+            <div class="logo-seccion">
+                <a href="index.html">
+                    <img src="img/logos.png" alt="Logo TAO de Jade" class="logo-img-grande">
+                </a>
+            </div>
+            
+            <div class="menu-seccion">
+                <a href="index.html" class="titulo-link">
+                    <h1 class="titulo-header">TAO de Jade</h1>
+                </a>
+                
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="navegacion-principal" id="nav-principal">
+                    <ul class="menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li class="menu-desplegable">
+                            <a href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="menu-desplegable">
+                            <a href="#">Talleres</a>
+                            <ul class="submenu">
+                                <li><a href="../talleres/agricultura/agricultura.html">Agricultura Orgánica</a></li>
+                                <li><a href="../talleres/cocinaIndustrial/cocina.html">Cocina Industrial</a></li>
+                                <li><a href="../talleres/carpinteria/carpinteria.html">Carpintería</a></li>
+                                <li><a href="../talleres/costura/costura.html">Costura</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../artes/artes.html">Artes</a></li>
+                        <li><a href="../oficios/oficios.html">Oficios</a></li>
+                        <li><a href="../apoyaUnJoven/apoya.html">Apoya un joven</a></li>
+                        <li><a href="../contactanos/contactanos.html">Contáctanos</a></li>
+                        <li><a href="../tienda/tienda.html" class="btn-tienda">Tienda</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="carrusel">
+            <div class="carrusel-inner" id="carrusel-inner">
+                
+                <div class="carrusel-item activa">
+                    <div class="contenedor carrusel-layout">
+                        <div class="carrusel-texto">
+                            <h2>Fuente de trabajo para jóvenes creativos e innovadores. Capacitación integral.</h2>
+                            <p>Puedes participar en nuestros talleres, artes y oficios en distintas modalidades. Enseñando, aprendiendo ó trabajando.</p>
+                            <p><strong>Aldea de jóvenes:</strong> Un proyecto de crecimiento y cooperación.</p>
+                            <a href="nosotros.html" class="btn-principal">Conoce las ventajas</a>
+                        </div>
+                        
+                        <div class="carrusel-graficos">
+                            <div class="forma-foto foto-1" style="background-image: url('img/AGRICULTURAORGANICA.png');"></div>
+                            <div class="forma-foto foto-2" style="background-image: url('img/carpinteria1.png');"></div>
+                            <div class="forma-foto foto-3" style="background-image: url('img/ImagenAbejas.png');"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carrusel-item"> 
+                    <div class="contenedor carrusel-layout">
+                        <div class="carrusel-texto">
+                            <h2>Artes, Oficios y Agricultura Orgánica</h2>
+                            <p>Aprende, trabaja y crece en un entorno de cooperación y contacto directo con la naturaleza.</p>
+                            <a href="talleres.html" class="btn-principal">Ver Talleres</a>
+                        </div>
+                        <div class="carrusel-graficos">
+                            <div class="forma-foto foto-4" style="background-image: url('img/paisaje.png');"></div>
+                            <div class="forma-foto foto-5" style="background-image: url('img/cocinaindustrial1.png');"></div>
+                            <div class="forma-foto foto-6" style="background-image: url('img/costura1.png');"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">&#10094;</button>
+            <button class="carrusel-btn next" onclick="moverCarrusel(1)">&#10095;</button>
+        </section>
+
+       <section class="talleres-identicos">
+            <div class="contenedor grid-talleres-identico">
+                
+                <div class="taller-item">
+                    <a href="../talleres/agricultura/agricultura.html" class="enlace-taller">
+                        <div class="forma-organica blob-mostaza">
+                            <img src="img/agricultura.png" alt="Agricultura Orgánica" class="icono-taller-img">
+                        </div>
+                        <h3>Agricultura Orgánica</h3>
+                    </a>
+                </div>
+
+                <div class="taller-item">
+                    <a href="../talleres/cocinaIndustrial/cocina.html" class="enlace-taller">
+                        <div class="forma-organica blob-salmon">
+                            <img src="img/cocina.png" alt="Cocina Industrial" class="icono-taller-img">
+                        </div>
+                        <h3>Cocina Industrial</h3>
+                    </a>
+                </div>
+
+                <div class="taller-item">
+                    <a href="../talleres/carpinteria/carpinteria.html" class="enlace-taller">
+                        <div class="forma-organica blob-mostaza">
+                            <img src="img/carpinteria.png" alt="Carpintería" class="icono-taller-img">
+                        </div>
+                        <h3>Carpintería</h3>
+                    </a>
+                </div>
+
+                <div class="taller-item">
+                    <a href="../talleres/costura/costura.html" class="enlace-taller">
+                        <div class="forma-organica blob-salmon">
+                            <img src="img/costura.png" alt="Costura" class="icono-taller-img">
+                        </div>
+                        <h3>Costura</h3>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="informacion-proyecto seccion">
+            
+            <div class="patron-decorativo top"></div>
+
+            <div class="contenedor">
+                <div class="grid-info">
+                    <div class="info-item">
+                        <img src="img/flor.png" alt="Icono Flor" class="icono-info">
+                        <h3>¿Cuál es el problema?</h3>
+                        <p>La falta de oportunidades sociales, educativas y económicas hace que muchos jóvenes sientan que no tienen sueños, esperanzas, o un futuro.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <img src="img/hoja.png" alt="Icono Hoja" class="icono-info">
+                        <h3>¿Qué buscamos?</h3>
+                        <p>TAO de Jade tiene como objetivo proporcionar habilidades para la vida que abrirán caminos para fortalecer la comunidad y la vida de los jóvenes.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <img src="img/abeja.png" alt="Icono Abeja" class="icono-info">
+                        <h3>¿A quién está dirigido?</h3>
+                        <p>Los jóvenes, de 18 a 29 años de edad, que están desempleados, que no están en la escuela o que se encuentran entre los trabajadores pobres, necesitan urgentemente oportunidades de trabajo, educación y emprendimiento que conduzcan a medios de vida productivos y contribuyentes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="patron-decorativo bottom"></div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor footer-grid">
+            <div class="footer-info">
+                <img src="img/logos.png" alt="Logo TAO de Jade" class="logo-img logo-footer">
+                <p>Una aldea de jóvenes. Un proyecto de crecimiento y cooperación.</p>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>
+                    <a href="https://www.google.com/maps/place/Tao+de+jade/@21.1873151,-105.1127533,16.83z/data=!4m15!1m8!3m7!1s0x8420d616110c36a3:0xa74402f972770541!2s63715+Las+Varas,+Nay.!3b1!8m2!3d21.1787007!4d-105.1355736!16zL20vMDhrMGZ5!3m5!1s0x8420d5fe2631601b:0x87aeabd8c0c2dd80!8m2!3d21.1859387!4d-105.1152236!16s%2Fg%2F11h2h99mrm?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D">
+                        📍 63708 La Cuata, Nayarit, Mexico
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:+5213271032065" class="enlace-contacto">
+                        📞 +52 1 (327) 103 2065
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:taodejade@gmail.com" class="enlace-contacto">
+                        ✉️ taodejade@gmail.com
+                    </a>
+                </p>
+            </div>
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="redes-enlaces">
+                    <a href="https://www.facebook.com/taodejadenayarit/">Facebook</a>
+                    <a href="https://www.youtube.com/@convivenciacampesinamardej9168">YouTube</a>
+                    <a href="https://www.instagram.com/taodejade/">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TAO de Jade. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
