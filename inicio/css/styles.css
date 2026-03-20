@@ -1,0 +1,715 @@
+/* ===== VARIABLES GLOBALES ===== */
+:root {
+    --color-header-bg: #B7D9A4;        
+    --color-header-text: #1A3018;      
+    --color-spiral-green: #B3C999;     
+    --color-spiral-mustard: #F5C75A;   
+    --color-spiral-rust: #A83C2A;      
+    --color-logo-brown: #705B48;       
+    --color-fondo: #FFFFFF;            
+    --color-texto-hero: #FFFFFF;       
+    --fuente-principal: 'Arial', sans-serif; 
+    --ancho-maximo: 1200px;            
+}
+
+/* ===== RESETEO GLOBAL ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* ===== CONFIGURACIÓN BASE DEL BODY ===== */
+body {
+    font-family: var(--fuente-principal); 
+    background: var(--color-fondo);       
+    color: var(--color-header-text);      
+    line-height: 1.6;                     
+    overflow-x: hidden; /* Previene scroll horizontal accidental */
+}
+
+/* ===== CONTENEDOR CENTRAL ===== */
+.contenedor {
+    max-width: var(--ancho-maximo);
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* ===== ESTILO GENERAL DE ENLACES ===== */
+a {
+    text-decoration: none; 
+    color: inherit;        
+}
+
+/* ===== LISTAS SIN VIÑETAS ===== */
+ul { list-style: none; }
+
+/* ===== ENCABEZADO ===== */
+.header {
+    background: var(--color-header-bg); 
+    box-shadow: 0 1px 3px rgba(0,0,0,.05); 
+    position: relative;
+    z-index: 1000; 
+}
+
+.menu li a.btn-tienda { 
+    background-color: var(--color-logo-brown); 
+    color: var(--color-fondo); 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+}
+
+.menu li a.btn-tienda:hover { 
+    background-color: #554435; 
+    transform: translateY(-2px); 
+}
+
+/* ===== DISTRIBUCIÓN INTERNA DEL HEADER ===== */
+.header-contenido {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    min-height: 150px; 
+    padding: 15px 20px;
+    gap: 40px; 
+}
+
+/* ===== LOGO GRANDE ===== */
+.logo-img-grande {
+    height: 120px;
+    transition: transform .3s ease; 
+}
+
+.logo-img-grande:hover { transform: scale(1.05); }
+
+/* ===== BLOQUE DERECHO DEL HEADER ===== */
+.menu-seccion {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    flex: 1; 
+}
+
+/* ===== ENLACE DEL TÍTULO ===== */
+.titulo-link { margin-bottom: 15px; }
+
+/* ===== TÍTULO PRINCIPAL ===== */
+.titulo-header {
+    font-size: 2.8rem;
+    color: var(--color-logo-brown);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+.menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== ENLACES DEL MENÚ ===== */
+.menu li a {
+    color: var(--color-header-text);
+    font-size: .9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    transition: color .3s ease;
+}
+
+.menu li a:hover { color: var(--color-spiral-rust); }
+
+/* ===== ESPACIADO DE SECCIONES ===== */
+.seccion { padding: 80px 0; }
+
+/* ===== TÍTULOS DE SECCIÓN ===== */
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* ===== BOTÓN PRINCIPAL ===== */
+.btn-principal {
+    display: inline-block;
+    background: var(--color-spiral-rust);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color .3s;
+}
+
+.btn-principal:hover { background: #8a3020; }
+
+/* ===== CARRUSEL ===== */
+.carrusel {
+    position: relative;
+    padding: 60px 0;
+    overflow: hidden; 
+}
+
+.carrusel-inner {
+    position: relative;
+    min-height: 500px;
+}
+
+.carrusel-item {
+    position: absolute;
+    inset: 0; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease-in-out, visibility .8s;
+}
+
+.carrusel-item.activa {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    z-index: 10;
+}
+
+.carrusel-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.carrusel-texto {
+    flex: 1;
+    max-width: 550px;
+}
+
+.carrusel-texto h2 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--color-logo-brown);
+}
+
+.carrusel-texto p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* ===== ÁREA DE IMÁGENES DEL CARRUSEL ===== */
+.carrusel-graficos {
+    flex: 1;
+    position: relative;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forma-foto {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+}
+
+.foto-1 { width: 250px; height: 280px; top: 50%; left: 50%; z-index: 2; }
+.foto-2 { width: 285px; height: 260px; top: 5%; left: 80%; z-index: 3; }
+.foto-3 { width: 280px; height: 300px; top: 5%; right: 50%; z-index: 1; }
+.foto-4 { width: 280px; height: 300px; top: 50%; left: 40%; z-index: 2; }
+.foto-5 { width: 235px; height: 260px; top: 5%; left: 80%; z-index: 3; }
+.foto-6 { width: 280px; height: 270px; top: 5%; right: 50%; z-index: 1; }
+
+/* ===== BOTONES DEL CARRUSEL ===== */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 20;
+    opacity: .3;
+    transition: opacity .3s, transform .3s;
+}
+
+.carrusel-btn:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ===== SECCIÓN TALLERES ===== */
+.talleres-identicos {
+    background: var(--color-header-bg);
+    padding: 80px 0;
+}
+
+.grid-talleres-identico {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.taller-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.forma-organica {
+    width: 210px;
+    height: 195px;
+    border-radius: 50% / 60% 60% 40% 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blob-mostaza { background: #F8D675; }
+.blob-salmon { background: #F29E74; }
+
+.icono-taller-img {
+    width: 110px;
+    object-fit: contain;
+}
+
+.taller-item h3 {
+    color: #0B240B;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+/* ===== SECCIÓN INFORMACIÓN ===== */
+.informacion-proyecto {
+    position: relative;
+    padding: 320px 0 180px;
+    text-align: center;
+}
+
+.patron-decorativo {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    background-repeat: repeat-x;
+    background-size: contain;
+    z-index: 1;
+}
+
+.top { top: 0; background-image: url('../img/fondosuperior.png'); }
+.bottom { bottom: 0; background-image: url('../img/fondoinferior.png'); }
+
+.grid-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.icono-info {
+    height: 70px;
+    margin-bottom: 20px;
+}
+
+.info-item h3 { color: #5A7E47; font-size: 1.4rem; margin-bottom: 15px; }
+.info-item p { color: #444; line-height: 1.7; font-size: .95rem; }
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--color-header-text);
+    color: #fff;
+    padding: 60px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer h4 {
+    color: var(--color-spiral-mustard);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer p, .footer a {
+    margin-bottom: 10px;
+    font-size: .95rem;
+}
+
+.redes-enlaces {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.redes-enlaces a:hover { color: var(--color-spiral-mustard); }
+
+.footer-bottom {
+    background: rgba(0,0,0,.15);
+    text-align: center;
+    padding: 20px 0;
+    font-size: .85rem;
+    opacity: .9;
+}
+
+.logo-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 60px;
+    border-radius: 8px;
+    transition: transform .3s ease;
+}
+
+.logo-contenedor:hover .logo-img { transform: scale(1.05); }
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--color-logo-brown);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo-footer {
+    height: 90px;
+    margin-bottom: 15px;
+}
+
+/* ================= SUBMENÚ DESPLEGABLE ================= */
+.menu-desplegable { 
+    position: relative; 
+}
+
+.submenu {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: var(--color-header-bg); 
+    min-width: 230px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    border-radius: 5px;
+    padding: 10px 0;
+    z-index: 2000;
+    flex-direction: column; 
+    gap: 0;
+}
+
+.menu-desplegable:hover .submenu { 
+    display: flex; 
+}
+
+.submenu li { 
+    width: 100%; 
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--color-header-text);
+    text-transform: capitalize; 
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submenu li:last-child a { 
+    border-bottom: none; 
+}
+
+.submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.4); 
+    color: var(--color-spiral-rust); 
+}
+
+/* Ocultar el botón de menú en escritorio por defecto */
+.menu-toggle { 
+    display: none; 
+}
+
+
+/* ==========================================================================
+   DISEÑO "MOBILE-FIRST" UNIFICADO (Celulares - max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* --- AJUSTES GENERALES MÓVIL --- */
+    body { 
+        font-size: 14px; 
+    }
+
+    .contenedor { 
+        width: 100% !important; 
+        padding: 0 15px !important; 
+    }
+
+    .seccion { 
+        padding: 50px 0; 
+    }
+
+    /* --- 1. HEADER Y MENÚ DE HAMBURGUESA --- */
+    .header-contenido {
+        flex-direction: row !important; 
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 15px;
+        min-height: 80px; 
+    }
+
+    .logo-img-grande { 
+    height: 50px; 
+    display: block; 
+    transition: transform 0.3s ease; 
+}
+
+    .logo-img-grande:hover { 
+    transform: scale(1.05); 
+}
+
+    .menu-seccion {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end; /* Alinea el contenido a la derecha */
+        flex: 1; /* Ocupa el espacio restante para empujar a la derecha */
+    }
+
+    /* AQUÍ ELIMINAMOS EL TEXTO "TAO DE JADE" EN CELULARES */
+    .titulo-link { 
+        display: none !important; 
+    }
+    
+    .titulo-header {
+        font-size: 1.5rem; 
+        letter-spacing: 1px;
+    }
+
+    /* Mostrar botón hamburguesa */
+    .menu-toggle {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 3000;
+        margin-left: auto; /* Asegura que se vaya hasta el borde derecho */
+    }
+
+    .menu-toggle span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-logo-brown); 
+        border-radius: 2px;
+        transition: all 0.3s linear;
+    }
+
+    /* Animación X */
+    .menu-toggle.active span:nth-child(1) { 
+        transform: rotate(45deg) translate(5px, 5px); 
+    }
+
+    .menu-toggle.active span:nth-child(2) { 
+        opacity: 0; 
+    }
+
+    .menu-toggle.active span:nth-child(3) { 
+        transform: rotate(-45deg) translate(7px, -6px); 
+    }
+
+    /* El menú lateral deslizable */
+    .navegacion-principal {
+        position: fixed; 
+        top: 0; 
+        right: -100%; 
+        width: 80%; 
+        height: 100vh; 
+        background-color: var(--color-header-text); 
+        display: flex; 
+        flex-direction: column;
+        padding-top: 100px; 
+        z-index: 2500;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5); 
+        overflow-y: auto;
+    }
+
+    .navegacion-principal.menu-open {
+        right: 0; 
+    }
+
+    /* Opciones del menú móvil */
+    .menu {
+        flex-direction: column !important;
+        gap: 15px;
+        align-items: flex-start; 
+        padding-left: 30px;
+        width: 100%;
+    }
+
+    .menu li { 
+        width: 100%; 
+    }
+
+    .menu li a {
+        color: var(--color-fondo); 
+        font-size: 1.3rem;
+        text-transform: capitalize;
+    }
+
+    /* Submenú en móvil (integrado y transparente) */
+    .submenu {
+        position: static !important;
+        display: flex !important; 
+        flex-direction: column;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        padding-left: 20px !important;
+        margin-top: 10px !important;
+        min-width: 100%;
+        border-radius: 0 !important;
+    }
+
+    .submenu li a {
+        color: var(--color-spiral-green) !important; 
+        font-size: 1.1rem !important;
+        padding: 8px 0 !important;
+        border-bottom: none !important;
+    }
+
+    .submenu li a:hover {
+        background-color: transparent !important;
+        color: var(--color-spiral-mustard) !important;
+    }
+
+    /* --- 2. SOLUCIÓN DEL CARRUSEL (Texto no cubierto) --- */
+    .carrusel-inner {
+        min-height: auto;
+    }
+
+    .carrusel-layout {
+        flex-direction: column-reverse; 
+        gap: 30px;
+    }
+
+    /* Contenedor de la foto principal en móvil */
+    .carrusel-graficos {
+        height: 250px !important; 
+        width: 100%;
+    }
+
+    /* En móvil, solo mostramos UNA foto por slide */
+    .forma-foto {
+        position: static; 
+        width: 250px;
+        height: 250px;
+        border-radius: 50%; 
+        margin: 0 auto;
+        border: 8px solid var(--color-fondo);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Escondemos las fotos secundarias en móvil */
+    .foto-2, 
+    .foto-3, 
+    .foto-5, 
+    .foto-6 { 
+        display: none; 
+    }
+
+    .carrusel-texto {
+        max-width: 100%;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .carrusel-texto h2 { 
+        font-size: 2rem; 
+    }
+    
+    .carrusel-btn { 
+        display: none; 
+    }
+
+    /* --- 3. DISEÑO EDITORIAL (Agricultura/Cocina) EN MÓVIL --- */
+    .texto-dos-columnas { 
+        column-count: 1; 
+    }
+
+    .grid-collage-resultados, 
+    .grid-avicultura { 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+    }
+
+    .grid-tipos-composta { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .hero-editorial { 
+        height: 350px; 
+    }
+
+    .hero-editorial-contenido h2 { 
+        font-size: 2.5rem; 
+    }
+
+    .cita-gigante { 
+        font-size: 1.5rem; 
+        margin-bottom: 20px; 
+    }
+    
+    .imagenes-superpuestas { 
+        height: 300px; 
+    }
+
+    .img-avi-atras { 
+        width: 90%; 
+        height: 250px; 
+    }
+
+    .img-avi-frente { 
+        width: 50%; 
+        height: 180px; 
+    }
+
+    /* --- 4. FOOTER MÓVIL --- */
+    .footer-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-info, 
+    .footer-contacto, 
+    .footer-social {
+        width: 100%;
+    }
+
+    .logo-footer { 
+        margin: 0 auto 15px auto; 
+    }
+}

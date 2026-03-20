@@ -1,0 +1,255 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catálogo | TAO de Jade</title>
+        <link rel="stylesheet" href="css/styles.css"> 
+    </head>
+    <body>
+
+        <header class="header">
+            <div class="contenedor header-contenido">
+                <div class="logo-seccion">
+                    <a href="../inicio/index.html">
+                        <img src="../inicio/img/logos.png" alt="Logo TAO de Jade" class="logo-img-grande">
+                    </a>
+                </div>
+                <div class="menu-seccion">
+                    <a href="../inicio/index.html" class="titulo-link">
+                        <h1 class="titulo-header">TAO de Jade</h1>
+                    </a>
+                    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <nav class="navegacion-principal" id="nav-principal">
+                        <ul class="menu">
+                            <li><a href="../inicio/index.html">Inicio</a></li>
+                            <li class="menu-desplegable"><a href="../nosotros/nosotros.html">Nosotros</a></li>
+                            <li class="menu-desplegable">
+                                <a href="#">Talleres</a>
+                                <ul class="submenu">
+                                    <li><a href="../talleres/agricultura/agricultura.html">Agricultura Orgánica</a></li>
+                                    <li><a href="../talleres/cocinaIndustrial/cocina.html">Cocina Industrial</a></li>
+                                    <li><a href="../talleres/carpinteria/carpinteria.html">Carpintería</a></li>
+                                    <li><a href="../talleres/costura/costura.html">Costura</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../artes/artes.html">Artes</a></li>
+                            <li><a href="../oficios/oficios.html">Oficios</a></li>
+                            <li><a href="../apoyaUnJoven/apoya.html">Apoya un joven</a></li>
+                            <li><a href="../contactanos/contactanos.html">Contáctanos</a></li>
+                            <li><a href="tienda.html" class="btn-tienda">Tienda</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero-editorial" style="background-image: url('assets/img/tienda-hero.jpg');">
+                <div class="overlay-claro"></div>
+                <div class="contenedor hero-editorial-contenido">
+                    <h2>Tienda TAO</h2>
+                    <p>Nuestras creaciones. Hechas a mano por jóvenes talentos, con respeto por la naturaleza y amor por el oficio.</p>
+                </div>
+            </section>
+
+            <section class="seccion text-center bg-mostaza-claro">
+                <div class="contenedor">
+                    <h3 class="titulo-editorial">Explora todos nuestros productos</h3>
+                    <p class="mb-20">Conoce nuestra oferta completa, medidas, especificaciones y la historia detrás de cada pieza.</p>
+                    <a href="catalogocompleto.pdf" download="Catalogo_TAO_de_Jade.pdf" class="btn-principal" style="font-size: 1.2rem; padding: 15px 35px;">
+                        📄 Descargar Catálogo Completo (PDF)
+                    </a>
+                </div>
+            </section>
+
+            <section class="seccion contenedor">
+                <div class="header-compostas text-center mb-40">
+                    <h3 class="titulo-editorial">Agricultura Orgánica</h3>
+                    <p>Cosechas libres de químicos, cultivadas con técnicas que nutren la tierra. Llevamos la frescura y la salud del campo directo a tu mesa o negocio.</p>
+                </div>
+                <div class="grid-productos">
+                    <div class="tarjeta-producto">
+                        <div class="img-producto" style="background-image: url('assets/img/cat-agri1.jpg');"></div>
+                        <div class="info-producto text-center">
+                            <h4>Hortalizas y Microgreens</h4>
+                            <p>Variedad de hojas verdes, vegetales de temporada y microgreens de alta densidad nutricional.</p>
+                            <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                        </div>
+                    </div>
+                    <div class="tarjeta-producto">
+                        <div class="img-producto" style="background-image: url('assets/img/cat-agri2.jpg');"></div>
+                        <div class="info-producto text-center">
+                            <h4>Huevos de Libre Pastoreo</h4>
+                            <p>Huevos orgánicos de gallinas criadas bajo el sol, con alimentación natural y libre de hormonas.</p>
+                            <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                        </div>
+                    </div>
+                    <div class="tarjeta-producto">
+                        <div class="img-producto" style="background-image: url('assets/img/cat-agri3.jpg');"></div>
+                        <div class="info-producto text-center">
+                            <h4>Compostas y Abonos</h4>
+                            <p>Bocashi, lombricomposta y abonos orgánicos para revitalizar tus jardines o huertos de forma natural.</p>
+                            <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion bg-claro">
+                <div class="contenedor">
+                    <div class="header-compostas text-center mb-40">
+                        <h3 class="titulo-editorial">Cocina Industrial</h3>
+                        <p>Transformamos la cosecha en innovación. Elaboramos productos artesanales a escala semi-industrial, libres de conservadores artificiales.</p>
+                    </div>
+                    <div class="grid-productos">
+                        <div class="tarjeta-producto">
+                            <div class="img-producto" style="background-image: url('assets/img/cat-coci1.jpg');"></div>
+                            <div class="info-producto text-center">
+                                <h4>Carnitas de Yaka</h4>
+                                <p>Nuestro producto estrella. Una alternativa vegetal, saludable y deliciosa basada en plantas.</p>
+                                <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                            </div>
+                        </div>
+                        <div class="tarjeta-producto">
+                            <div class="img-producto" style="background-image: url('assets/img/cat-coci2.jpg');"></div>
+                            <div class="info-producto text-center">
+                                <h4>Mermeladas y Conservas</h4>
+                                <p>Frutos de temporada preservados con técnicas tradicionales, bajos en azúcar y llenos de sabor.</p>
+                                <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                            </div>
+                        </div>
+                        <div class="tarjeta-producto">
+                            <div class="img-producto" style="background-image: url('assets/img/cat-coci3.jpg');"></div>
+                            <div class="info-producto text-center">
+                                <h4>Deshidratados Naturales</h4>
+                                <p>Snacks y complementos culinarios elaborados para alargar la vida del producto sin perder nutrientes.</p>
+                                <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion contenedor">
+                <div class="header-compostas text-center mb-40">
+                    <h3 class="titulo-editorial">Taller de Costura</h3>
+                    <p>Confección textil responsable. Trabajamos bajo pedido para evitar mermas, creando prendas duraderas con diseños exclusivos o personalizados.</p>
+                </div>
+                <div class="grid-productos">
+                    <div class="tarjeta-producto">
+                        <div class="img-producto" style="background-image: url('assets/img/cat-cost1.jpg');"></div>
+                        <div class="info-producto text-center">
+                            <h4>Uniformes Empresariales</h4>
+                            <p>Diseño y confección de uniformes sobre medida para hoteles, restaurantes y corporativos.</p>
+                            <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                        </div>
+                    </div>
+                    <div class="tarjeta-producto">
+                        <div class="img-producto" style="background-image: url('assets/img/cat-cost2.jpg');"></div>
+                        <div class="info-producto text-center">
+                            <h4>Mandiles de Trabajo</h4>
+                            <p>Mandiles de lona gruesa de alta durabilidad, ideales para talleres, carpinterías o cocinas.</p>
+                            <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                        </div>
+                    </div>
+                    <div class="tarjeta-producto">
+                        <div class="img-producto" style="background-image: url('assets/img/cat-cost3.jpg');"></div>
+                        <div class="info-producto text-center">
+                            <h4>Blancos y Tapicería Ligera</h4>
+                            <p>Sábanas, mantelería y elementos decorativos textiles para el hogar o la industria hotelera.</p>
+                            <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion bg-claro">
+                <div class="contenedor">
+                    <div class="header-compostas text-center mb-40">
+                        <h3 class="titulo-editorial">Carpintería Artesanal</h3>
+                        <p>Muebles y objetos con alma. Utilizamos maderas recuperadas y certificadas, ensambladas con técnicas tradicionales para durar generaciones.</p>
+                    </div>
+                    <div class="grid-productos">
+                        <div class="tarjeta-producto">
+                            <div class="img-producto" style="background-image: url('assets/img/cat-carp1.jpg');"></div>
+                            <div class="info-producto text-center">
+                                <h4>Utensilios y Tablas</h4>
+                                <p>Tablas de picar y elementos de cocina tallados a mano y curados con aceites naturales no tóxicos.</p>
+                                <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                            </div>
+                        </div>
+                        <div class="tarjeta-producto">
+                            <div class="img-producto" style="background-image: url('assets/img/cat-carp2.jpg');"></div>
+                            <div class="info-producto text-center">
+                                <h4>Mobiliario Escolar y Local</h4>
+                                <p>Bancas, mesas y escritorios de alta resistencia diseñados para espacios comunitarios y escuelas.</p>
+                                <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                            </div>
+                        </div>
+                        <div class="tarjeta-producto">
+                            <div class="img-producto" style="background-image: url('assets/img/cat-carp3.jpg');"></div>
+                            <div class="info-producto text-center">
+                                <h4>Muebles a la Medida</h4>
+                                <p>Interpretamos tus ideas para crear mobiliario único, desde el boceto hasta el acabado final.</p>
+                                <button class="btn-comprar btn-cotizar">Cotizaciones y detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="modal-cotizacion" id="modalCotizacion">
+            <div class="modal-contenido">
+                <button class="btn-cerrar-modal" id="btnCerrarModal">✖</button>
+                <h3 class="titulo-editorial" style="font-size: 1.8rem;">Cotizaciones y Detalles</h3>
+                <p class="mb-20">¡Nos encanta que te interesen nuestros productos! Cada proyecto es especial. Contáctanos por tu medio favorito para darte precios, tiempos de entrega y detalles personalizados.</p>
+                
+                <div class="botones-contacto-directo">
+                    <a href="https://wa.me/5213271032065?text=Hola,%20me%20gustaría%20cotizar%20un%20producto%20del%20catálogo%20TAO%20de%20Jade." target="_blank" class="btn-modal btn-wa">
+                        💬 Enviar WhatsApp
+                    </a>
+                    
+                    <a href="tel:+5213271032065" class="btn-modal btn-tel">
+                        📞 Llamar ahora
+                    </a>
+                    
+                    <a href="mailto:taodejade@gmail.com?subject=Cotización de productos" class="btn-modal btn-mail">
+                        ✉️ Enviar Correo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="contenedor footer-grid">
+                <div class="footer-info">
+                    <img src="../inicio/img/logos.png" alt="Logo TAO de Jade" class="logo-img logo-footer">
+                    <p>Una aldea de jóvenes. Un proyecto de crecimiento y cooperación.</p>
+                </div>
+                <div class="footer-contacto">
+                    <h4>Contacto</h4>
+                    <p><a href="https://www.google.com/maps/search/?api=1&query=La+Cuata,+Nayarit,+Mexico" target="_blank" class="enlace-contacto">📍 63708 La Cuata, Nayarit, Mexico</a></p>
+                    <p><a href="tel:+5213271032065" class="enlace-contacto">📞 +52 1 (327) 103 2065</a></p>
+                    <p><a href="mailto:taodejade@gmail.com" class="enlace-contacto">✉️ taodejade@gmail.com</a></p>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="redes-enlaces">
+                        <a href="https://www.facebook.com/taodejadenayarit/" target="_blank">Facebook</a>
+                        <a href="https://www.youtube.com/@convivenciacampesinamardej9168" target="_blank">YouTube</a>
+                        <a href="https://www.instagram.com/taodejade/" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 TAO de Jade. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+    </html>

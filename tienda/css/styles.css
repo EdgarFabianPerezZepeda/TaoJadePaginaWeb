@@ -1,0 +1,576 @@
+/* ================= VARIABLES GLOBALES ================= */
+:root {
+    --color-header-bg: #B7D9A4;    
+    --color-header-text: #1A3018;  
+    --color-spiral-green: #B3C999;
+    --color-spiral-mustard: #F5C75A;
+    --color-spiral-rust: #A83C2A;
+    --color-logo-brown: #705B48;    
+    --color-fondo: #FFFFFF;         
+    --fuente-principal: 'Arial', sans-serif;
+    --ancho-maximo: 1200px;
+}
+
+/* ================= BASE Y RESETEO ================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: var(--fuente-principal); 
+    background-color: var(--color-fondo) !important; 
+    color: var(--color-header-text); 
+    line-height: 1.6; 
+    overflow-x: hidden; 
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+ul { 
+    list-style: none; 
+}
+
+.contenedor { 
+    max-width: var(--ancho-maximo); 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.seccion { 
+    padding: 80px 0; 
+}
+
+.bg-claro { 
+    background-color: #F8FBF6; 
+}
+
+.bg-mostaza-claro { 
+    background-color: #FDF9EB; 
+}
+
+.btn-principal {
+    display: inline-block; 
+    background-color: var(--color-spiral-rust); 
+    color: var(--color-fondo);
+    padding: 12px 24px; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    transition: background-color 0.3s;
+}
+
+.btn-principal:hover { 
+    background-color: #8a3020; 
+}
+
+/* ================= HEADER Y NAVEGACIÓN ================= */
+.header { 
+    background-color: var(--color-header-bg); 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+    position: relative; 
+    z-index: 1000; 
+}
+
+.header-contenido { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    min-height: 150px; 
+    padding: 15px 20px; 
+    gap: 40px; 
+}
+
+.logo-img-grande { 
+    height: 120px; 
+    width: auto; 
+    display: block; 
+    transition: transform 0.3s ease; 
+}
+
+.logo-img-grande:hover { 
+    transform: scale(1.05); 
+}
+
+.menu-seccion { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    flex: 1; 
+}
+
+.titulo-link { 
+    margin-bottom: 15px; 
+}
+
+.titulo-header { 
+    font-size: 2.8rem; 
+    color: var(--color-logo-brown); 
+    font-weight: 700; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    margin: 0; 
+}
+
+.menu { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.menu li a { 
+    color: var(--color-header-text); 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    transition: color 0.3s ease; 
+    padding: 5px 0; 
+}
+
+.menu li a:hover { 
+    color: var(--color-spiral-rust); 
+}
+
+.menu li a.btn-tienda { 
+    background-color: var(--color-logo-brown); 
+    color: var(--color-fondo); 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+}
+
+.menu li a.btn-tienda:hover { 
+    background-color: #554435; 
+    transform: translateY(-2px); 
+}
+
+/* Ocultar el botón de menú en escritorio por defecto */
+.menu-toggle { 
+    display: none; 
+}
+
+/* SUBMENÚ DESPLEGABLE */
+.menu-desplegable { 
+    position: relative; 
+}
+
+.submenu { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    background-color: var(--color-header-bg); 
+    min-width: 230px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    border-radius: 5px; 
+    padding: 10px 0; 
+    z-index: 2000; 
+    flex-direction: column; 
+    gap: 0; 
+}
+
+.menu-desplegable:hover .submenu { 
+    display: flex; 
+}
+
+.submenu li { 
+    width: 100%; 
+}
+
+.submenu li a { 
+    display: block; 
+    padding: 12px 20px; 
+    color: var(--color-header-text); 
+    text-transform: capitalize; 
+    font-size: 0.9rem; 
+    font-weight: 500; 
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.submenu li:last-child a { 
+    border-bottom: none; 
+}
+
+.submenu li a:hover { 
+    background-color: rgba(255, 255, 255, 0.4); 
+    color: var(--color-spiral-rust); 
+}
+
+/* ================= DISEÑO DE CATÁLOGO / SHOWROOM ================= */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.tarjeta-producto {
+    background: var(--color-fondo);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.img-producto {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+}
+
+.info-producto {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    align-items: center; 
+}
+
+.info-producto h4 {
+    font-size: 1.3rem;
+    color: var(--color-header-text);
+    margin-bottom: 10px;
+}
+
+.info-producto p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.btn-comprar {
+    background: var(--color-spiral-rust);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%; 
+    font-size: 1rem;
+}
+
+.btn-comprar:hover {
+    background: #8a3020;
+    transform: scale(1.02);
+}
+
+/* ================= VENTANA FLOTANTE (MODAL COTIZACIÓN) ================= */
+.modal-cotizacion {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(26, 48, 24, 0.8); 
+    z-index: 4000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-cotizacion.mostrar {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-contenido {
+    background: var(--color-fondo);
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-cotizacion.mostrar .modal-contenido {
+    transform: translateY(0);
+}
+
+.btn-cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-cerrar-modal:hover { 
+    color: var(--color-spiral-rust); 
+}
+
+.botones-contacto-directo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-modal {
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+.btn-modal:hover { 
+    transform: translateY(-3px); 
+    opacity: 0.9; 
+}
+
+.btn-wa { background-color: #25D366; color: white; }
+.btn-tel { background-color: var(--color-logo-brown); color: white; }
+.btn-mail { background-color: var(--color-spiral-mustard); color: var(--color-header-text); }
+
+/* ================= FOOTER ================= */
+.footer { 
+    background-color: var(--color-header-text); 
+    color: var(--color-fondo); 
+    padding: 60px 0 0 0; 
+}
+
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px; 
+    padding-bottom: 40px; 
+}
+
+.logo-footer { 
+    height: 90px; 
+    margin-bottom: 15px; 
+}
+
+.footer h4 { 
+    color: var(--color-spiral-mustard); 
+    margin-bottom: 20px; 
+    font-size: 1.2rem; 
+}
+
+.footer p, .footer a { 
+    margin-bottom: 10px; 
+    font-size: 0.95rem; 
+    color: var(--color-fondo); 
+}
+
+.enlace-contacto { 
+    color: var(--color-fondo); 
+    text-decoration: none; 
+    transition: color 0.3s ease, transform 0.2s ease; 
+    display: inline-block; 
+}
+
+.enlace-contacto:hover { 
+    color: var(--color-spiral-mustard); 
+    transform: translateX(5px); 
+}
+
+.redes-enlaces { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.redes-enlaces a:hover { 
+    color: var(--color-spiral-mustard); 
+    transition: color 0.3s ease; 
+}
+
+.footer-bottom { 
+    background-color: rgba(0, 0, 0, 0.15); 
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 0.85rem; 
+    opacity: 0.9; 
+}
+
+/* ==========================================================================
+   DISEÑO "MOBILE-FIRST" UNIFICADO (Celulares - max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* --- AJUSTES GENERALES MÓVIL --- */
+    body { 
+        font-size: 14px; 
+    }
+
+    .contenedor { 
+        width: 100% !important; 
+        padding: 0 15px !important; 
+    }
+
+    .seccion { 
+        padding: 50px 0; 
+    }
+
+    /* --- 1. HEADER Y ALINEACIÓN --- */
+    .header-contenido { 
+        flex-direction: row !important; 
+        justify-content: space-between !important; 
+        align-items: center !important; 
+        padding: 10px 15px !important; 
+        min-height: 80px !important; 
+    }
+
+    .logo-img-grande { 
+        height: 50px !important; 
+        margin-bottom: 0; 
+    }
+
+    .menu-seccion {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end; 
+        flex: 1; 
+    }
+
+    /* ELIMINAR EL TEXTO "TAO DE JADE" EN CELULAR */
+    .titulo-link { 
+        display: none !important; 
+    }
+
+    /* --- 2. BOTÓN HAMBURGUESA --- */
+    .menu-toggle { 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-around; 
+        width: 30px; 
+        height: 25px; 
+        background: transparent; 
+        border: none; 
+        cursor: pointer; 
+        padding: 0; 
+        z-index: 3000; 
+        margin-left: auto; 
+    }
+
+    .menu-toggle span { 
+        width: 100%; 
+        height: 3px; 
+        background-color: var(--color-logo-brown); 
+        border-radius: 2px; 
+        transition: all 0.3s linear; 
+    }
+
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+    
+    /* --- 3. PANEL DEL MENÚ DESPLEGABLE --- */
+    .navegacion-principal { 
+        position: fixed; 
+        top: 0; 
+        right: -100%; 
+        width: 80%; 
+        height: 100vh; 
+        background-color: var(--color-header-text); 
+        display: flex; 
+        flex-direction: column; 
+        padding-top: 80px; 
+        z-index: 2500; 
+        transition: right 0.4s ease; 
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5); 
+        overflow-y: auto; 
+    }
+
+    .navegacion-principal.menu-open { 
+        right: 0; 
+    }
+
+    /* --- 4. TAMAÑOS DE LETRA DEL MENÚ PRINCIPAL --- */
+    .menu { 
+        flex-direction: column !important; 
+        gap: 15px; 
+        align-items: flex-start; 
+        padding-left: 20px; 
+        width: 100%; 
+    }
+
+    .menu li { 
+        width: 100%; 
+    }
+
+    .menu li a { 
+        color: var(--color-fondo); 
+        font-size: 1.2rem !important; 
+        text-transform: capitalize; 
+        display: block; 
+        padding: 10px 0; 
+    }
+    
+    /* --- 5. TAMAÑOS DE LETRA DEL SUBMENÚ (TALLERES) --- */
+    .menu-desplegable .submenu {
+        position: static !important; 
+        display: flex !important; 
+        flex-direction: column;
+        background-color: transparent !important; 
+        box-shadow: none !important;
+        padding-left: 25px !important; 
+        margin-top: 5px !important;
+        margin-bottom: 10px !important; 
+        min-width: 100%;
+        border-radius: 0 !important;
+    }
+
+    .submenu li a {
+        color: var(--color-spiral-green) !important; 
+        font-size: 1rem !important; 
+        padding: 8px 0 !important; 
+        border-bottom: none !important; 
+        font-weight: 500 !important; 
+    }
+
+    .submenu li:last-child a { 
+        border-bottom: none !important; 
+    }
+
+    .submenu li a:hover {
+        background-color: transparent !important;
+        color: var(--color-spiral-mustard) !important;
+    }
+
+    /* --- FOOTER MÓVIL --- */
+    .footer-grid { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        text-align: center; 
+        gap: 30px; 
+    }
+
+    .footer-info, 
+    .footer-contacto, 
+    .footer-social { 
+        width: 100%; 
+    }
+
+    .logo-footer { 
+        margin: 0 auto 15px auto; 
+    }
+}

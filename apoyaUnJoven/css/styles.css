@@ -1,0 +1,749 @@
+/* ================= VARIABLES GLOBALES Y RESET ================= */
+:root {
+    --color-header-bg: #B7D9A4;    
+    --color-header-text: #1A3018;  
+    --color-spiral-green: #B3C999;
+    --color-spiral-mustard: #F5C75A;
+    --color-spiral-rust: #A83C2A;
+    --color-logo-brown: #705B48;    
+    --color-fondo: #FFFFFF;         
+    --fuente-principal: 'Arial', sans-serif;
+    --ancho-maximo: 1200px;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: var(--fuente-principal); 
+    background-color: var(--color-fondo); 
+    color: var(--color-header-text); 
+    line-height: 1.6; 
+    overflow-x: hidden; 
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+ul { 
+    list-style: none; 
+}
+
+.contenedor { 
+    max-width: var(--ancho-maximo); 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.seccion { 
+    padding: 80px 0; 
+}
+
+.bg-claro { 
+    background-color: #F8FBF6; 
+}
+
+.bg-mostaza-claro { 
+    background-color: #FDF9EB; 
+}
+
+.text-center { 
+    text-align: center; 
+}
+
+.mt-20 { 
+    margin-top: 20px; 
+} 
+
+.mt-40 { 
+    margin-top: 40px; 
+} 
+
+.mt-50 { 
+    margin-top: 50px; 
+} 
+
+.mb-20 { 
+    margin-bottom: 20px; 
+} 
+
+.mb-40 { 
+    margin-bottom: 40px; 
+}
+
+/* ================= BOTONES ================= */
+.btn-principal { 
+    display: inline-block; 
+    background-color: var(--color-spiral-rust); 
+    color: var(--color-fondo); 
+    padding: 12px 24px; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    border: none; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+}
+
+.btn-principal:hover { 
+    background-color: #8a3020; 
+    transform: translateY(-2px); 
+}
+
+.btn-secundario { 
+    display: inline-block; 
+    background-color: var(--color-spiral-green); 
+    color: var(--color-header-text); 
+    padding: 12px 24px; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    transition: all 0.3s; 
+    border: 2px solid var(--color-spiral-green); 
+}
+
+.btn-secundario:hover { 
+    background-color: transparent; 
+}
+
+.btn-gigante { 
+    font-size: 1.2rem; 
+    padding: 18px 40px; 
+    border-radius: 30px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    background-color: var(--color-header-text); 
+}
+
+.btn-gigante:hover { 
+    background-color: var(--color-logo-brown); 
+}
+
+/* ================= HEADER Y NAVEGACIÓN ================= */
+.header { 
+    background-color: var(--color-header-bg); 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+    position: relative; 
+    z-index: 1000; 
+}
+
+.header-contenido { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    min-height: 150px; 
+    padding: 15px 20px; 
+    gap: 40px; 
+}
+
+.logo-img-grande { 
+    height: 120px; 
+    display: block; 
+    transition: transform 0.3s ease; 
+}
+
+.logo-img-grande:hover { 
+    transform: scale(1.05); 
+}
+
+.menu-seccion { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    flex: 1; 
+}
+
+.titulo-link { 
+    margin-bottom: 15px; 
+}
+
+.titulo-header { 
+    font-size: 2.8rem; 
+    color: var(--color-logo-brown); 
+    font-weight: 700; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    margin: 0; 
+}
+
+.menu { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.menu li a { 
+    color: var(--color-header-text); 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    transition: color 0.3s ease; 
+    padding: 5px 0; 
+}
+
+.menu li a:hover { 
+    color: var(--color-spiral-rust); 
+}
+
+.menu li a.btn-tienda { 
+    background-color: var(--color-logo-brown); 
+    color: var(--color-fondo); 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+}
+
+.menu li a.btn-tienda:hover { 
+    background-color: #554435; 
+    transform: translateY(-2px); 
+}
+
+.menu-toggle { 
+    display: none; 
+}
+
+/* Submenú PC */
+.menu-desplegable { 
+    position: relative; 
+}
+
+.submenu { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    background-color: var(--color-header-bg); 
+    min-width: 230px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    border-radius: 5px; 
+    padding: 10px 0; 
+    z-index: 2000; 
+    flex-direction: column; 
+    gap: 0; 
+}
+
+.menu-desplegable:hover .submenu { 
+    display: flex; 
+}
+
+.submenu li { 
+    width: 100%; 
+}
+
+.submenu li a { 
+    display: block; 
+    padding: 12px 20px; 
+    color: var(--color-header-text); 
+    text-transform: capitalize; 
+    font-size: 0.9rem; 
+    font-weight: 500; 
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+    transition: all 0.3s ease; 
+}
+
+.submenu li:last-child a { 
+    border-bottom: none; 
+}
+
+.submenu li a:hover { 
+    background-color: rgba(255, 255, 255, 0.4); 
+    color: var(--color-spiral-rust); 
+}
+/* ================= FOOTER ================= */
+.footer { 
+    background-color: var(--color-header-text); 
+    color: var(--color-fondo); 
+    padding: 60px 0 0 0; 
+}
+
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px; 
+    padding-bottom: 40px; 
+}
+
+.logo-footer { 
+    height: 90px; 
+    margin-bottom: 15px; 
+}
+
+.footer h4 { 
+    color: var(--color-spiral-mustard); 
+    margin-bottom: 20px; 
+    font-size: 1.2rem; 
+}
+
+.footer p, 
+.footer a { 
+    margin-bottom: 10px; 
+    font-size: 0.95rem; 
+    color: var(--color-fondo); 
+}
+
+.enlace-contacto { 
+    color: var(--color-fondo); 
+    text-decoration: none; 
+    transition: color 0.3s; 
+    display: inline-block; 
+}
+
+.enlace-contacto:hover { 
+    color: var(--color-spiral-mustard); 
+    transform: translateX(5px); 
+}
+
+.redes-enlaces { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.redes-enlaces a:hover { 
+    color: var(--color-spiral-mustard); 
+}
+
+.footer-bottom { 
+    background-color: rgba(0, 0, 0, 0.15); 
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 0.85rem; 
+    opacity: 0.9; 
+}
+
+:root {
+    --color-header-text: #1A3018; /* Verde oscuro orgánico */
+    --color-logo-brown: #705B48; /* Marrón tierra */
+    --color-spiral-mustard: #F5C75A; /* Mostaza/Dorado */
+    --color-fondo: #FFFFFF;
+    --fuente-principal: 'Arial', sans-serif;
+    --ancho-maximo: 1200px;
+}
+
+/* Base Editorial */
+.seccion-editorial {
+    padding: 80px 0;
+    background-color: #F8FBF6; /* Un blanco roto muy sutil */
+    color: var(--color-header-text);
+    font-family: var(--fuente-principal);
+}
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    margin-bottom: 60px;
+}
+
+.editorial-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Títulos y Texto */
+.titulo-editorial {
+    font-size: 2.8rem;
+    color: var(--color-header-text);
+    line-height: 1.1;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.titulo-editorial::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-spiral-mustard);
+    border-radius: 2px;
+}
+
+.texto-introductorio {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+.texto-introductorio p {
+    margin-bottom: 20px;
+}
+
+/* Vídeo */
+.video-block {
+    padding: 0;
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-caption {
+    padding: 20px 30px;
+    background-color: #f4f4f4;
+}
+
+.video-caption h4 {
+    margin: 0;
+    color: var(--color-header-text);
+}
+
+.video-caption p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: var(--color-logo-brown);
+}
+
+/* Galería Mosaico */
+.galeria-mosaico {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+.foto-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.foto-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Barra de Donación */
+.donation-bar {
+    background-color: white;
+    padding: 30px 0;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
+}
+
+.donation-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.donation-bar-content p {
+    font-size: 1.3rem;
+    color: var(--color-logo-brown);
+    font-weight: 600;
+}
+
+.btn-mostaza {
+    display: inline-block;
+    background-color: var(--color-spiral-mustard);
+    color: var(--color-header-text);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-mostaza:hover {
+    background-color: #e0b44d;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .editorial-grid {
+        grid-template-columns: 1fr;
+    }
+    .titulo-editorial {
+        font-size: 2.2rem;
+    }
+    .galeria-mosaico {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .donation-bar-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
+/* Contenedor principal de la sección */
+.aj-seccion-apoyo {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #fcfcfc;
+}
+
+/* La tarjeta propiamente */
+.aj-tarjeta {
+    max-width: 900px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border-left: 5px solid #2e7d32; /* Detalle visual lateral */
+}
+
+/* Estilo de la frase destacada */
+.aj-cita {
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #222;
+    line-height: 1.4;
+    margin: 0 0 30px 0;
+    border: none;
+    padding: 0;
+}
+
+/* Grid para los dos párrafos */
+.aj-grid-texto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 25px;
+}
+
+/* Estilo de los párrafos */
+.aj-parrafo {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+}
+
+.aj-parrafo strong {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+    .aj-tarjeta {
+        padding: 25px;
+    }
+    .aj-cita {
+        font-size: 1.3rem;
+    }
+}
+/* ================= HERO Y DISEÑO EDITORIAL ================= */
+/* Estructura Base del Hero Editorial */
+.hero-editorial { 
+    position: relative; 
+    height: 450px; 
+    background-size: cover; 
+    background-position: center; 
+    display: flex; 
+    align-items: center; 
+    background-color: var(--color-header-bg); 
+    overflow: hidden;
+}
+
+/* Imagen específica para la sección Nosotros */
+.hero-nosotros {
+    background-image: url('img/background main.jpeg'); /* Asegúrate de que la ruta sea correcta */
+}
+
+/* Capa de degradado (Overlay) */
+.overlay-claro { 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    /* Degradado de blanco sólido a transparente hacia la derecha */
+    background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.2) 100%); 
+    z-index: 1; 
+}
+
+/* Contenedor de Texto */
+.hero-editorial-contenido { 
+    position: relative; 
+    z-index: 1; 
+    max-width: 1000px; 
+    margin-left: 0; 
+}
+
+/* Título Estilo Revista */
+.hero-editorial-contenido h2 { 
+    font-size: 4rem; 
+    color: var(--color-header-text); 
+    line-height: 1.1; 
+    margin-bottom: 20px; 
+}
+
+/* Subtítulo o Párrafo del Hero */
+.hero-editorial-contenido p { 
+    font-size: 1.3rem; 
+    color: var(--color-logo-brown); 
+    font-weight: 500; 
+}
+
+/* --- Estilos Adicionales para el cuerpo de la página --- */
+
+.titulo-editorial { 
+    font-size: 2.2rem; 
+    color: var(--color-header-text); 
+    margin-bottom: 25px; 
+    position: relative; 
+    display: inline-block; 
+}
+
+.titulo-editorial::after { 
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    bottom: -8px; 
+    width: 60px; 
+    height: 4px; 
+    background-color: var(--color-spiral-mustard); 
+    border-radius: 2px; 
+}
+
+.cita-gigante { 
+    font-size: 2.5rem; 
+    line-height: 1.3; 
+    color: var(--color-logo-brown); 
+    font-style: italic; 
+    font-weight: 700; 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+.texto-dos-columnas { 
+    column-count: 2; 
+    column-gap: 50px; 
+    font-size: 1.1rem; 
+    color: #444; 
+    text-align: justify; 
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .hero-editorial-contenido h2 {
+        font-size: 2.5rem;
+    }
+    .texto-dos-columnas {
+        column-count: 1;
+    }
+    .overlay-claro {
+        background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%);
+    }
+}
+/* ================= AJUSTES RESPONSIVOS MÓVILES (TELÉFONOS) ================= */
+@media (max-width: 480px) {
+
+    /* 1. HERO EDITORIAL: Reducir tamaños para que no se desborde el texto */
+    .hero-editorial {
+        height: 350px; /* Un poco más corto en el cel */
+    }
+
+    .hero-editorial-contenido {
+        padding: 0 20px;
+    }
+
+    .hero-editorial-contenido h2 {
+        font-size: 2.2rem; /* Tamaño manejable para pantallas pequeñas */
+        line-height: 1.2;
+    }
+
+    .hero-editorial-contenido p {
+        font-size: 1rem;
+    }
+
+    /* 2. CITA Y TEXTO: Ajustar la lectura */
+    .cita-gigante {
+        font-size: 1.5rem; /* Evita que una sola palabra ocupe toda la línea */
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    .texto-dos-columnas {
+        column-count: 1; /* Forzar una sola columna */
+        text-align: left; /* La justificación en móvil a veces deja huecos feos */
+        font-size: 1rem;
+    }
+
+    /* 3. PERFIL FUNDADORA: Apilar imagen y texto */
+    .grid-perfil {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .marco-foto {
+        transform: rotate(0deg); /* Quitar rotación para que no estorbe en el scroll */
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .perfil-info {
+        text-align: center;
+    }
+
+    /* 4. GALERÍA VIDA EN TAO: Ajustar tamaño de fotos para que no se vean gigantes */
+    .foto-vida {
+        width: 220px; /* Fotos más pequeñas para que el usuario vea que hay más */
+        height: 300px;
+    }
+
+    @keyframes scroll-vida {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-250px * 22)); } /* Ajuste de velocidad según el nuevo ancho */
+    }
+
+    /* 5. TÍTULOS DE SECCIÓN */
+    .titulo-editorial {
+        font-size: 1.8rem;
+        text-align: center;
+        display: block;
+    }
+
+    .titulo-editorial::after {
+        left: 50%;
+        transform: translateX(-50%); /* Centrar la línea decorativa */
+    }
+
+    /* 6. FOOTER: Centrar elementos para mejor estética */
+    .footer-grid {
+        text-align: center;
+    }
+
+    .redes-enlaces {
+        align-items: center;
+    }
+
+    .logo-footer {
+        margin: 0 auto 15px auto;
+    }
+}
+
+/* Ajuste para tablets pequeñas o teléfonos grandes (Landscape) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-editorial-contenido h2 {
+        font-size: 3rem;
+    }
+    
+    .grid-perfil {
+        grid-template-columns: 1fr;
+    }
+}
